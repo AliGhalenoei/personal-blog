@@ -1,0 +1,78 @@
+{% load static %}
+<div class="aside">
+    <div class="topics">
+      <h2 class="h2">Skils</h2>
+      {% for i in skills%}
+      <a href="#" class="topic-btn">
+        <div class="icon-box">
+          <img src="{{i.icon.url}}" alt="">
+        </div>
+        <p>{{i.name}}</p>
+      </a>
+      {% endfor %}
+
+    <div class="tags">
+      <h2 class="h2">My Projects</h2>
+
+      <div class="wrapper">
+        {% for i in sample_works %}
+          <a href="{{i.address}}" target="_blank" style="text-decoration: none;">{{i.name}}</a><br>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="contact">
+      <h2 class="h2">Let's Talk</h2>
+
+      <div class="wrapper">
+        <p>
+          Do you want to learn more about how I can help your company
+          overcome problems? Let us have a conversation.
+        </p>
+        <ul class="social-link">
+          <li>
+            <a href="https://github.com/AliGhalenoei/" target="_blank" class="icon-box discord">
+              <img src="{% static 'weblog/images/github.png'%}" alt="">
+            </a>
+          </li>
+          <li>
+            <a href="https://t.me/AliGhalenoeii" class="icon-box twitter" target="_blank">
+              <img src="{% static 'weblog/images/telegram.png'%}" alt="">
+            </a>
+          </li>
+
+          <li>
+            <a href="#" class="icon-box facebook" target="_blank">
+              <img src="{% static 'weblog/images/instagram.png'%}" alt="">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="newsletter">
+      <h2 class="h2">Newsletter</h2>
+      <div class="wrapper">
+        <p>
+          Subscribe to our newsletter to be among the first to keep up
+          with the latest updates.
+        </p>
+        <form action="" method="post">
+          {% csrf_token %}
+          <input
+            type="email"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+
+          <button type="submit" class="btn btn-primary">
+            Subscribe
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</main>

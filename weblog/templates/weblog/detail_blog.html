@@ -1,0 +1,17 @@
+{% extends 'weblog/base.html' %}
+{% block title %} Contact {% endblock %}
+
+{% block content %}  ]
+
+    <div class="container">
+        <div class="card" style="width: 100%;">
+            <img src="{{blog.image.url}}" class="card-img-top" alt="...">
+
+            <div class="card-body">
+              <h5 class="card-title">{{blog.title}}</h5>
+              <p class="card-text">{{blog.content|linebreaks}}.</p>
+            </div>
+          </div>
+    </div>
+
+{% endblock %}
