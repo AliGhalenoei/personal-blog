@@ -1,8 +1,37 @@
 {% load static %}
 <div class="main">
+
+  <div class="topics d-block d-sm-none text-center">
+    <h2 class="h2 mb-4">Skills</h2>
+     {% for i in skills %}
+    <div class="card mb-3" style="max-width: 540px; height: 60px; border: solid 1,2,2,2;">
+      <div class="row g-0">
+        <div class="col-md-4" style="text-align: center; padding: 20px;">
+          <img src="{{i.icon.url}}" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+          
+            <h5 class="card-title" style="display: inline-block; position: relative; top: -50px;">{{i.name}}</h5>
+          
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+    </div>
+
+    <div class="topics d-block d-sm-none text-center">
+      <h2 class="h2 mb-4">My Project</h2>
+      <div class="card p-3" style="text-align: left;">
+        {% for i in sample_works %}
+          <a href="{{i.address}}" target="_blank" style="text-decoration: none;">{{i.name}}</a><br>
+        {% endfor %}
+      </div>
+      </div>
+
+      <br><br>
     <div class="container">
       <div class="blog">
-        <h2 class="h2">A summary of my knowledge.</h2>
+        <h2 class="h2">New Blogs</h2>
 
         <div class="blog-card-group">
         {% for i in blogs %}
@@ -39,10 +68,10 @@
                   <a href="#" class="h4">{{i.user.username}}</a>
 
                   <p class="text-sm">
-                    <time datetime="2021-09-13">{{i.created}}</time>
+                    <time datetime="2021-09-13">{{i.created|timesince}}</time>
                     <span class="separator"></span>
                     <ion-icon name="time-outline"></ion-icon>
-                    <time datetime="PT7M">7 min</time>
+                    
                   </p>
                 </div>
               </div>
@@ -53,3 +82,54 @@
         
         <button class="btn load-more">Load More</button>
       </div>
+      
+      <!-- Atris -->
+      <div class="topics d-block d-sm-none text-center">
+        <h2 class="h2 mt-5">Newsletter</h2>
+        <div class="wrapper">
+          <p>
+            Subscribe to our newsletter to be among the first to keep up
+            with the latest updates.
+          </p>
+          <form action="" method="post">
+            {% csrf_token %}
+            <input
+            class="form-control"
+              type="email"
+              name="email"
+              placeholder="Email Address"
+              required
+            />
+  
+            <button type="submit" class="btn btn-outline-primary w-100 mt-1" style="border-radius: 10px;">
+              Subscribe
+            </button>
+          </form>
+        </div>
+      </div>
+
+
+      <div class="topics d-block d-sm-none text-center">
+        <div class="w-100 mb-3 mt-3">
+          <div class="card-body">
+            <h5 class="card-title" style="margin-top: 60px;">Let's Talk</h5>
+            <p class="card-text">Do you want to learn more about how I can help your company
+              overcome problems? Let us have a conversation..</p>
+              <a href="https://github.com/AliGhalenoei/" target="_blank" class="icon-box discord">
+                <img src="{% static 'weblog/images/github.png'%}" alt="">
+              </a>
+
+              <a href="https://t.me/AliGhalenoeii" class="icon-box twitter" target="_blank">
+                <img src="{% static 'weblog/images/telegram.png'%}" alt="">
+              </a>
+
+              <a href="#" class="icon-box facebook" target="_blank">
+                <img src="{% static 'weblog/images/instagram.png'%}" alt="">
+              </a>
+          </div>
+        </div>
+      </div>
+
+      
+
+      

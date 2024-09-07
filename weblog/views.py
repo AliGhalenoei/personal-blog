@@ -16,7 +16,7 @@ class IndexView(View):
     def get(self , request):
         skills = Skill.objects.all()
         sample_works = SampleWork.objects.all()
-        blogs = Blog.objects.all()
+        blogs = Blog.objects.order_by('-id')
         return render(request,self.template_name,{
             'skills':skills,
             'sample_works':sample_works,

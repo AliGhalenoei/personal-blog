@@ -7,7 +7,7 @@ from .models import Blog , Notification
 def notification(sender , **kwargs):
     if kwargs['created']:
         emails = Notification.objects.values_list('email',flat=True)
-        msg = " Hi buddy! \n A new post has been uploaded to the blog \n http://127.0.0.1:8000/"
+        msg = " Hi buddy! \n A new post has been uploaded to the blog \n https://amirgh.pythonanywhere.com/"
         for email in emails:
             send_mail('New Blog',msg ,'alighalenoei8383@gmail.com' , [email] , fail_silently=False)
             print('Send Notification successfuly')
